@@ -79,7 +79,7 @@ instafeed({
 
 #### Cursor Based Pagination
 
-Instagram's API uses cursor based pagination. With every request Instafeed makes, the return value will contain an `after` property, which is cursor that identifies the last post returned in the request. You can then pass the the cursor to `after` when making a new request to get the next 'page' posts that come after the last post from the previous request.
+Instagram's API uses cursor based pagination. With every request Instafeed makes, the return value will contain an `after` property, which is the cursor that identifies the last post returned in the request. You can then pass that cursor to `after` when making a new request to get the next 'page' posts that come after the last post from the previous request.
 
 ````javascript
 // Fetch latest posts from Instagram
@@ -91,7 +91,7 @@ instafeed({
 ````
 
 #### Refreshing Your Access Token
-Instagram long lived User Access Tokens are valid for 60 days, but can be refreshed to extend their lifespan. Every time you refresh your access token, the expiration date is set to 60 days again, and the API responds with the number of seconds until your User Access Token expires. When a User Access Token is refreshed, the API will not refresh it again until at least 24 hours have passed. The API will not throw an error if you refresh too often, so long as you're not hitting the 200 requests per hour rate limit, but it won't actually refresh the token until 24 hours have passed.
+Instagram long lived User Access Tokens are valid for 60 days, but can be refreshed to extend their lifespan. Every time you refresh your User Access Token, the expiration date is set to 60 days again, and the API responds with the number of seconds until your User Access Token expires. When a User Access Token is refreshed, the API will not refresh it again until at least 24 hours have passed. The API will not throw an error if you refresh too often, so long as you're not hitting the 200 requests per hour rate limit. However it won't actually refresh the token until it recieves a refresh request after 24 hours have passed. The API will always accurately return the correct number of seconds until the User Access Token expires.
 
 This module has a built-in helper function that will send a request to the `/refresh_access_token` endpoint to assist you in easily keeping your User Access Token valid.
 
@@ -169,7 +169,7 @@ The `refreshToken()` function accepts an object of options as it's only paramete
 
 | Option | Type | Required | Description |
 | :--- | :---: | :---: | :--- |
-| access_token | string | Required | A long-lived User Access Token for the Instagram account you want to fetch the posts for. |
+| access_token | string | Required | A valid long-lived User Access Token that has not expired. |
 
 #### refreshToken() Return Values
 
@@ -177,7 +177,7 @@ The `refreshToken()` function will return the following values if the request wa
 
 | Property | Type | Always Returned | Description |
 | :--- | :---: | :---: | :--- |
-| access_token | string | Yes | A long-lived Instagram User Access Token. |
+| access_token | string | Yes | A long-lived Instagram User Access Token. The original token is still valid, despite the API returning a different one here. |
 | token_type | string | Yes | The value is always 'bearer', I'm not sure what this is for. |
 | expires_in | int | Yes | The number of seconds until the long-lived User Access Token expires. |
 
@@ -191,7 +191,7 @@ In the event of an error, Instafeed will return an error message.
 Any errors thrown by Instafeed will be prefixed with [Instafeed Error]. The error message will contain instructions on how to fix the error.
 
 #### Instagram API Errors
-Any errors thrown by Instafeed will be prefixed with [Instagram API Error]. The error message will contain the Error Code, Error Type, and Error Message returned from the API.
+Any errors thrown by the Instagram API will be prefixed with [Instagram API Error]. The error message will contain the Error Code, Error Type, and Error Message returned from the API.
 
 ## Changelog
 

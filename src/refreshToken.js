@@ -16,7 +16,7 @@ const refreshToken = async (options) => {
   } else {
 
     // Bail early
-    return new Error('[Instafeed Error] Please supply an access token to refreshAccessToken()');
+    return new Error('[Instafeed Error] Please supply an access token.');
 
   }
   

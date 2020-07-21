@@ -16,7 +16,7 @@ const fetchPosts = async (options) => {
   } else {
 
     // Bail early
-    return new Error('[Instafeed Error] Please supply an access token to fetchPosts()');
+    return new Error('[Instafeed Error] Please supply an access token.');
 
   }
   
