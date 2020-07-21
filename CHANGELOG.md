@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.1.3 (July 21, 2020)
+- Readme Update
+
 ### 0.1.2 (July 21, 2020)
 - Readme Update
 
