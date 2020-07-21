@@ -1,12 +1,13 @@
 # Instafeed for Node.js
 
 
-This module allows you to asynchronously fetch posts from the Instagram Graph API with a long-lived User Access Token. To use this module, it is recommended that you obtain a User Access Token from the User Token Generator tool in the Facebook Developers Console. A User Access Token will allow you to fetch only the Instagram posts from the account it was generated for.
+This node.js module allows you to asynchronously fetch posts from the Instagram Graph API with a long-lived User Access Token. To use this module, it is recommended that you obtain a long-lived User Access Token from the User Token Generator tool in the Facebook Developers Console. A User Access Token will allow you to fetch only the Instagram posts from the account it was generated for.
 
 For more information about how to obtain a User Access Token, see: [Basic Display API Overview](https://developers.facebook.com/docs/instagram-basic-display-api/overview)
 
 ## Table of Contents
 - [Usage](#usage)
+    - [Installation](#installation)
     - [Basic Usage](#basic-usage)
     - [Request specific number of posts](#request-specific-number-of-posts)
     - [Cursor Based Pagination](#cursor-based-pagination)
@@ -26,8 +27,14 @@ For more information about how to obtain a User Access Token, see: [Basic Displa
 ## Usage
 **Note:** It is highly recommended that you store User Access Tokens in an environment variable. Therefore, the code snippets below assume your User Access Token is stored in `process.env.ig_user_access_token`. Please be sure to update this value in the code snippets to correctly reference the variable for your User Access Token.
 
+#### Installation
+`npm install instafeed-node-js`
+
 #### Basic Usage
 ````javascript
+// Require Module
+const { instafeed, refreshToken } = require('instafeed-node-js');
+
 // Fetch latest posts from Instagram
 instafeed({
     access_token: process.env.ig_user_access_token
