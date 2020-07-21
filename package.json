@@ -1,0 +1,30 @@
+{
+  "name": "instafeed-node-js",
+  "version": "0.0.1",
+  "description": "A node.js module that allows you to asynchronously fetch posts from the Instagram Graph API by supplying a User Access Token.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "instagram",
+    "graph",
+    "api",
+    "cache",
+    "refresh",
+    "user",
+    "access",
+    "token"
+  ],
+  "author": "Dino Mastrianni <dino@mastrianni.biz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dinomastrianni/instafeed-node-js.git"
+  },
+  "dependencies": {
+    "axios": ">=0.8.0"
+  },
+  "devDependencies": {}
+}
