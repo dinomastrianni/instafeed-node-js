@@ -12,7 +12,7 @@ For more information about how to obtain a User Access Token, see: [Basic Displa
     - [Request specific number of posts](#request-specific-number-of-posts)
     - [Cursor Based Pagination](#cursor-based-pagination)
     - [Refreshing Your Access Token](#refreshing-your-access-token)
-- [instafeed()](#instafeed
+- [instafeed()](#instafeed)
     - [Request Parameters](#instafeed-request-parameters)
     - [Return Values](#instafeed-return-values)
 - [refreshToken()](#refreshToken)
