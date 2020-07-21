@@ -195,7 +195,7 @@ Any errors thrown by Instafeed will be prefixed with [Instagram API Error]. The 
 
 ## Changelog
 
-[Changelog](/changelog.md)
+[Changelog](/CHANGELOG.md)
 
 ## License
 
